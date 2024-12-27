@@ -1,4 +1,4 @@
-package main.java;
+package main.java.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -83,8 +83,8 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() {
         if (keyH.UpPressed==true) {PlayerY-=PlayerSpeed;}
         else if (keyH.DownPressed==true) {PlayerY+=PlayerSpeed;}
-        else if (keyH.LeftPressed==true) {PlayerX-=PlayerSpeed;}
-        else if (keyH.RightPressed==true) {PlayerX+=PlayerSpeed;}
+        else if (keyH.LeftPressed==true) {PlayerX+=PlayerSpeed;}
+        else if (keyH.RightPressed==true) {PlayerX-=PlayerSpeed;}
     }
 
     /**
