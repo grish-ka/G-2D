@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
 
-    //set settings
+    ///Set up the ***settings***
     final int OriginalTileSize = 16;
     final int scale = 3;
 
@@ -17,6 +17,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     Thread gameThread;
 
+    /**
+     * Initializes the <b>game panel</b>
+     */
     public GamePanel() {
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
@@ -42,4 +45,16 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
     }
+
+    /**
+     * updates the game
+     */
+    public void update() {}
+
+    /**
+     * adds a component to the <b>screen</b>
+     */
+    public void paintComponent() {}
+
+
 }
