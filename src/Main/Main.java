@@ -10,9 +10,16 @@ public class Main {
         // Set up the <b>window</b>
         //
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(true);
+        window.setResizable(false);
+
+
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
+
+        window.pack();
+
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
-        while (true) {
-        }
+
     }
 }
