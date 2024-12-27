@@ -7,7 +7,7 @@ version '1.0'
 
 jar {
     manifest {
-        attributes "Main-Class": "main.java.Main.main"
+        attributes "Main-Class": "Main.main"
     }
 
     from {
