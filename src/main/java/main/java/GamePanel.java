@@ -15,7 +15,17 @@ public class GamePanel extends JPanel implements Runnable{
     final int ScreenWidth = tileSize * MaxScreenCol;
     final int ScreenHeight = tileSize * MaxScreenRow;
 
+    ///***FPS***
+    int FPS=60;
+
+    /// Initialize **vars**
+    KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+
+    ///Set ***Player's*** default pos
+    int PlayerX = 100;
+    int PlayerY = 100;
+    int PlayerSpeed = 4;
 
     /**
      * Initializes the <b>game panel</b>
@@ -24,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
+        this.addKeyListener(keyH);
+        this.setFocusable(true);
     }
 
     /**
@@ -40,8 +52,27 @@ public class GamePanel extends JPanel implements Runnable{
     @Override
     public void run() {
 
+        double drawInterval = 1000000000/FPS;
+        double NextDrawTime= System.nanoTime() + drawInterval;
+
         while (gameThread != null) {
-            System.out.println("The game loop is running");
+            update();
+
+            repaint();
+
+            try {
+                double remaningTime = NextDrawTime-System.nanoTime();
+                remaningTime=remaningTime/1000000;
+
+                if (remaningTime<0) {remaningTime=0;}
+
+                Thread.sleep((long)remaningTime);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            NextDrawTime+=drawInterval;
+
         }
 
     }
@@ -49,12 +80,29 @@ public class GamePanel extends JPanel implements Runnable{
     /**
      * updates the game
      */
-    public void update() {}
+    public void update() {
+        if (keyH.UpPressed==true) {PlayerY-=PlayerSpeed;}
+        else if (keyH.DownPressed==true) {PlayerY+=PlayerSpeed;}
+        else if (keyH.LeftPressed==true) {PlayerX-=PlayerSpeed;}
+        else if (keyH.RightPressed==true) {PlayerX+=PlayerSpeed;}
+    }
 
     /**
      * adds a component to the <b>screen</b>
+     * @param g is of type {@code Graphics}
      */
-    public void paintComponent() {}
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.white);
+
+        g2.fillRect(PlayerX,PlayerY,tileSize,tileSize);
+
+        g2.dispose();
+
+    }
 
 
 }
