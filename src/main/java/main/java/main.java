@@ -1,10 +1,10 @@
-package Main;
+package main.java;
 
 import javax.swing.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class main {
     public static void main(String[] args) {
         JFrame window = new JFrame("Game.GG V1.0");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

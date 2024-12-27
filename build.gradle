@@ -5,6 +5,15 @@ plugins {
 group 'org.G-2D'
 version '1.0'
 
+jar {
+    manifest {
+        attributes "Main-Class": "main.java.main"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
