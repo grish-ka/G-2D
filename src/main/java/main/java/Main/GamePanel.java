@@ -1,5 +1,7 @@
 package main.java.Main;
 
+import main.java.entity.*;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
     /// Initialize **vars**
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    Player player = new Player(this, keyH);
 
     ///Set ***Player's*** default pos
     int PlayerX = 100;
@@ -81,10 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
      * updates the game
      */
     public void update() {
-        if (keyH.UpPressed==true) {PlayerY-=PlayerSpeed;}
-        else if (keyH.DownPressed==true) {PlayerY+=PlayerSpeed;}
-        else if (keyH.LeftPressed==true) {PlayerX+=PlayerSpeed;}
-        else if (keyH.RightPressed==true) {PlayerX-=PlayerSpeed;}
+        player.update();
     }
 
     /**
@@ -96,9 +96,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        g2.setColor(Color.white);
-
-        g2.fillRect(PlayerX,PlayerY,tileSize,tileSize);
+        player.draw(g2);
 
         g2.dispose();
 
