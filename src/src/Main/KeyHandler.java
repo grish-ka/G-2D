@@ -29,9 +29,9 @@ public class KeyHandler implements KeyListener {
 
         if (code == KeyEvent.VK_S) {DownPressed=true;}
 
-        if (code == KeyEvent.VK_A) {RightPressed=true;}
+        if (code == KeyEvent.VK_A) {LeftPressed=true;}
 
-        if (code == KeyEvent.VK_D) {LeftPressed=true;}
+        if (code == KeyEvent.VK_D) {RightPressed=true;}
 
     }
 
@@ -48,9 +48,9 @@ public class KeyHandler implements KeyListener {
 
         if (code == KeyEvent.VK_S) {DownPressed=false;}
 
-        if (code == KeyEvent.VK_A) {RightPressed=false;}
+        if (code == KeyEvent.VK_A) {LeftPressed=false;}
 
-        if (code == KeyEvent.VK_D) {LeftPressed=false;}
+        if (code == KeyEvent.VK_D) {RightPressed=false;}
 
     }
 }
