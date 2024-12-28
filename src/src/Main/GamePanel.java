@@ -25,7 +25,8 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     Player player = new Player(this, keyH);
 
-    ///Set ***Player's*** default pos
+    ///Set ***Player's*** default pos<br>
+    /// ***NOT NEEDED NOW***
     int PlayerX = 100;
     int PlayerY = 100;
     int PlayerSpeed = 4;
