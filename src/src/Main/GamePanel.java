@@ -62,6 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
         while (gameThread != null) {
             update();
 
+            /// The ``repaint()`` function runs the ``paint component`` function
             repaint();
 
             try {
