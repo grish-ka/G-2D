@@ -1,6 +1,4 @@
-package Main;
-
-import entity.*;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +21,7 @@ public class GamePanel extends JPanel implements Runnable{
     /// Initialize **vars**
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-    Player player = new Player(this, keyH);
+    entity.Player player = new entity.Player(this, keyH);
 
     ///Set ***Player's*** default pos<br>
     /// ***NOT NEEDED NOW***

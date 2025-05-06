@@ -1,6 +1,6 @@
 package entity;
 
-import Main.*;
+import main.*;
 
 import javax.imageio.*;
 import java.awt.*;
@@ -23,6 +23,9 @@ public class Player extends Entity{
 
     public void getPlayerImages() {
         try{
+            if (getClass().getResourceAsStream("/res/player/boy_up_1.png") == null) {
+                throw new IllegalArgumentException("input == null!");
+            }
             up1 = ImageIO.read(getClass().getResourceAsStream("/res/player/boy_up_1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/res/player/boy_up_2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/res/player/boy_down_1.png"));

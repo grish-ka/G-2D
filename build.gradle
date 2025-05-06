@@ -1,25 +1,24 @@
 plugins {
     id 'java'
 }
-
-group 'org.G-2D'
+// JDK: C:\Program Files\Java\jdk-17.0.1
+group 'org.grishka.G-2D'
 version '1.0'
 
+//compileJava.options.fork = true
+//compileJava.options.forkOptions.executable = 'C:/Program Files/Common Files/Oracle/Java/javapath/java.exe'
+
 jar {
+
     manifest {
-        attributes "Main-Class": ""
+        attributes "Main-Class": "main.Main"
     }
 
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    from("src/main/java") {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        include "res/**/*.png"
     }
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
 }
